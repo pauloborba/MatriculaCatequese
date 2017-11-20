@@ -31,3 +31,14 @@ And the year "2017"
 And the initial date "01/03/2017"
 And the final date "02/03/2017"
 Then the system will show me an error message
+
+Scenario: No students and no saturdays in time period
+Given that I am at the class presence page
+And I am logged as teacher “Admin"
+When I choose the class "Pré I"
+And the year "2017"
+And the initial date "01/03/2017"
+And the final date "02/03/2017"
+And there are no students associated with the class "Pré I"
+And the year "2017"
+Then the system will show me an error message
