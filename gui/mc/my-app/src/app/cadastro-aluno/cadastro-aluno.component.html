@@ -1,3 +1,284 @@
 <div>
   <h2 style="text-align: center">Cadastro Alunos</h2>
 </div>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+	<div class="form-group"  [class.has-error]="!nome.valid && nome.touched">
+		<label for="nome">Nome</label>
+		<input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" [(ngModel)]="aluno.nome" required #nome="ngModel"/>
+		<div *ngIf="!nome.valid && nome.touched" class="alert alert-danger" role="alert">
+			Nome é obrigatório. 
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="nascimento">Data de Nascimento</label>
+		<input type="date" class="form-control" id="nascimento" name="nascimento" placeholder="Nome" [(ngModel)]="aluno.nascimento" required #nascimento="ngModel"/>
+		<div *ngIf="!nascimento.valid && nascimento.touched" class="alert alert-danger" role="alert">
+			Data de Nascimento é obrigatório. 
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="endereco">Endereço</label>
+		<input type="text" class="form-control" id="endereco" name="endereco" placeholder="Rua X, Bairro Y, Cidade Z, Numero N, e etc" [(ngModel)]="aluno.endereco" required #endereco="ngModel"/>
+		<div *ngIf="!endereco.valid && endereco.touched" class="alert alert-danger" role="alert">
+			Endereço é obrigatório. 
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="telefone">Telefone</label>
+		<input type="text" class="form-control" id="telefone" name="telefone" placeholder="81 3446 6961" [(ngModel)]="aluno.telefone"/>
+	</div>
+
+	<div class="form-group">
+		<label for="moraPais">Mora com os Pais?</label>
+		<input type="checkbox" class="form-control" id="moraPais" name="moraPais" [(ngModel)]="aluno.moraPais"/>
+	</div>
+
+	<div class="form-group">
+		<label for="escola">Escola</label>
+		<input type="text" class="form-control" id="escola" name="escola" placeholder="Escola A do B" [(ngModel)]="aluno.escola" required #escola="ngModel"/>
+		<div *ngIf="!escola.valid && escola.touched" class="alert alert-danger" role="alert">
+			Escola é obrigatório. 
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="anoEscola">Ano Escolar</label>
+		<input type="text" class="form-control" id="anoEscola" name="anoEscola" placeholder="1º Ano" [(ngModel)]="aluno.anoEscolar" required #model="ngModel"/>
+		<div *ngIf="!model.valid && model.touched" class="alert alert-danger" role="alert">
+			Ano escolar é obrigatório. 
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="periodo">Periodo de Estudo</label>
+		<input type="text" class="form-control" id="periodo" name="periodo" placeholder="Vespertino/Matutino/Integral" [(ngModel)]="aluno.periodo" required #model="ngModel"/>
+		<div *ngIf="!model.valid && model.touched" class="alert alert-danger" role="alert">
+			Periodo de Estudo é obrigatório. 
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="casaDaCrianca">Estuda na Casa da Criança Marcelo Asfora?</label>
+		<input type="checkbox" class="form-control" id="casaDaCrianca" name="casaDaCrianca" [(ngModel)]="aluno.casaDaCrianca"/>
+	</div>
+
+	<div class="form-group">
+		<label for="catequisado">Já fez catequese em outros lugares?</label>
+		<input type="checkbox" class="form-control" id="catequisado" name="catequisado" [(ngModel)]="aluno.catequisado"/>
+	</div>
+
+	<div class="form-group">
+		<label for="catequeseExterna">Lugar onde fez catequese anteriormente:</label>
+		<input type="text" class="form-control" id="catequeseExterna" name="catequeseExterna" [(ngModel)]="aluno.catequeseExterna"/>
+	</div>
+
+	<div class="form-group">
+		<label for="batismo">É batisado?</label>
+		<input type="checkbox" class="form-control" id="batismo" name="batismo" [(ngModel)]="aluno.batismo"/>
+	</div>
+
+	<div class="form-group">
+		<label for="igrejaBatismo">Que igreja foi batisado?</label>
+		<input type="text" class="form-control" id="igrejaBatismo" name="igrejaBatismo" [(ngModel)]="aluno.igrejaBatismo"/>
+	</div>
+
+	<div class="form-group">
+		<label for="paroquia">Pertence a qual Paroquia?</label>
+		<input type="text" class="form-control" id="paroquia" name="paroquia" [(ngModel)]="aluno.paroquia"/>
+	</div>
+
+	<div class="form-group">
+		<label for="primeiraEucaristia">Fez primeira Eucaristia?</label>
+		<input type="checkbox" class="form-control" id="primeiraEucaristia" name="primeiraEucaristia" [(ngModel)]="aluno.primeiraEucaristia"/>
+	</div>
+
+	<div class="form-group">
+		<label for="saude">Tem algum problema de saúde ou alergia?</label>
+		<input type="text" class="form-control" id="saude" name="saude" [(ngModel)]="aluno.saude"/>
+	</div>
+
+	<div>
+	  <h2 style="text-align: center">Responsavel 1</h2>
+	</div>
+
+	<div class="form-group">
+		<label for="nome1">Nome</label>
+		<input type="text" class="form-control" id="nome1" name="nome1" placeholder="Nome" [(ngModel)]="responsavel.nome" required #model="ngModel"/>
+		<div *ngIf="!model.valid && model.touched" class="alert alert-danger" role="alert">
+			Nome do Responsavel 1 é obrigatório. 
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="endereco1">Endereço</label>
+		<input type="text" class="form-control" id="endereco1" name="endereco1" placeholder="Rua X, Bairro Y, Cidade Z, Numero N, e etc" [(ngModel)]="responsavel.endereco" required #model="ngModel"/>
+		<div *ngIf="!model.valid && model.touched" class="alert alert-danger" role="alert">
+			Endereço do Responsavel 1 é obrigatório. 
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="estadoCivil1">Estado Civil</label>
+		<input type="text" class="form-control" id="estadoCivil1" name="estadoCivil1" placeholder="Casado(a), Solteiro(a), Separado(a), Divorciado(a), Viúvo(a), União Estavel" [(ngModel)]="responsavel.estadoCivil" required #model="ngModel"/>
+		<div *ngIf="!model.valid && model.touched" class="alert alert-danger" role="alert">
+			Estado Civil do Responsavel 1 é obrigatório. 
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="telefone1">Telefone</label>
+		<input type="text" class="form-control" id="telefone1" name="telefone1" placeholder="81 9 9946 6961" [(ngModel)]="responsavel.telefone" required required #model="ngModel"/>
+		<div *ngIf="!model.valid && model.touched" class="alert alert-danger" role="alert">
+			Telefone do Responsavel 1 é obrigatório. 
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="parentesco1">Parentesco</label>
+		<input type="text" class="form-control" id="parentesco1" name="parentesco1" placeholder="Mãe, Pai, Avõ, Avô, etc" [(ngModel)]="responsavel.parentesco" required required #model="ngModel"/>
+		<div *ngIf="!model.valid && model.touched" class="alert alert-danger" role="alert">
+			Parentesco do Responsavel 1 é obrigatório. 
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="profissao1">Profissão</label>
+		<input type="text" class="form-control" id="profissao1" name="profissao1" placeholder="" [(ngModel)]="responsavel.profissao"/>
+	</div>
+
+	<div class="form-group">
+		<label for="email1">Email</label>
+		<input type="email" class="form-control" id="email1" name="email1" placeholder="responsavel@email.com" [(ngModel)]="responsavel.email"/>
+	</div>
+
+	<div class="form-group">
+		<label for="batismo1">É batisado?</label>
+		<input type="checkbox" class="form-control" id="batismo1" name="batismo1" [(ngModel)]="responsavel.batismo"/>
+	</div>
+
+	<div class="form-group">
+		<label for="primeiraEucaristia1">Fez Primeira Eucaristia?</label>
+		<input type="checkbox" class="form-control" id="primeiraEucaristia1" name="primeiraEucaristia1" [(ngModel)]="responsavel.primeiraEucaristia"/>
+	</div>
+
+	<div class="form-group">
+		<label for="crisma1">Fez Crisma?</label>
+		<input type="checkbox" class="form-control" id="crisma1" name="crisma1" [(ngModel)]="responsavel.crisma"/>
+	</div>
+
+	<div class="form-group">
+		<label for="pastoral1">Pertence a alguma pastoral?</label>
+		<input type="checkbox" class="form-control" id="pastoral1" name="pastoral1" [(ngModel)]="responsavel.pastoral"/>
+	</div>
+
+	<div class="form-group">
+		<label for="pastoralName1">Qual Pastoral?</label>
+		<input type="text" class="form-control" id="pastoralName1" name="pastoralName1" placeholder="" [(ngModel)]="responsavel.pastoralName"/>
+	</div>
+
+	<div class="form-group">
+		<label for="igreja1">Frequenta alguma Igreja??</label>
+		<input type="text" class="form-control" id="igreja1" name="igreja1" placeholder="" [(ngModel)]="responsavel.igreja"/>
+	</div>
+
+	<div class="form-group">
+		<label for="dizimista1">É dizimista?</label>
+		<input type="checkbox" class="form-control" id="dizimista1" name="dizimista1" [(ngModel)]="responsavel.dizimista"/>
+	</div>
+
+	<div>
+	  <h2 style="text-align: center">Responsavel 2</h2>
+	</div>
+
+	<div class="form-group">
+		<label for="nome2">Nome</label>
+		<input type="text" class="form-control" id="nome2" name="nome2" placeholder="Nome" [(ngModel)]="companheiro.nome" required required #model="ngModel"/>
+		<div *ngIf="!model.valid && model.touched" class="alert alert-danger" role="alert">
+			Nome do Responsavel 2 é obrigatório. 
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="endereco2">Endereço</label>
+		<input type="text" class="form-control" id="endereco2" name="endereco2" placeholder="Rua X, Bairro Y, Cidade Z, Numero N, e etc" [(ngModel)]="companheiro.endereco" required #model="ngModel"/>
+		<div *ngIf="!model.valid && model.touched" class="alert alert-danger" role="alert">
+			Endereço do Responsavel 2 é obrigatório. 
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="estadoCivil2">Estado Civil</label>
+		<input type="text" class="form-control" id="estadoCivil2" name="estadoCivil2" placeholder="Casado(a), Solteiro(a), Separado(a), Divorciado(a), Viúvo(a), União Estavel" [(ngModel)]="companheiro.estadoCivil" required #model="ngModel"/>
+		<div *ngIf="!model.valid && model.touched" class="alert alert-danger" role="alert">
+			Estado Civil do Responsavel 2 é obrigatório. 
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="telefone2">Telefone</label>
+		<input type="text" class="form-control" id="telefone2" name="telefone2" placeholder="82 9 9946 6962" [(ngModel)]="companheiro.telefone" required #model="ngModel"/>
+		<div *ngIf="!model.valid && model.touched" class="alert alert-danger" role="alert">
+			Telefone do Responsavel 2 é obrigatório. 
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="parentesco2">Parentesco</label>
+		<input type="text" class="form-control" id="parentesco2" name="parentesco2" placeholder="Mãe, Pai, Avõ, Avô, etc" [(ngModel)]="companheiro.parentesco" required #model="ngModel"/>
+		<div *ngIf="!model.valid && model.touched" class="alert alert-danger" role="alert">
+			Parentesco do Responsavel 2 é obrigatório. 
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="profissao2">Profissão</label>
+		<input type="text" class="form-control" id="profissao2" name="profissao2" placeholder="" [(ngModel)]="companheiro.profissao"/>
+	</div>
+
+	<div class="form-group">
+		<label for="email2">Email</label>
+		<input type="email" class="form-control" id="email2" name="email2" placeholder="companheiro@email.com" [(ngModel)]="companheiro.email"/>
+	</div>
+
+	<div class="form-group">
+		<label for="batismo2">É batisado?</label>
+		<input type="checkbox" class="form-control" id="batismo2" name="batismo2" [(ngModel)]="companheiro.batismo"/>
+	</div>
+
+	<div class="form-group">
+		<label for="primeiraEucaristia2">Fez Primeira Eucaristia?</label>
+		<input type="checkbox" class="form-control" id="primeiraEucaristia2" name="primeiraEucaristia2" [(ngModel)]="companheiro.primeiraEucaristia"/>
+	</div>
+
+	<div class="form-group">
+		<label for="crisma2">Fez Crisma?</label>
+		<input type="checkbox" class="form-control" id="crisma2" name="crisma2" [(ngModel)]="companheiro.crisma"/>
+	</div>
+
+	<div class="form-group">
+		<label for="pastoral2">Pertence a alguma pastoral?</label>
+		<input type="checkbox" class="form-control" id="pastoral2" name="pastoral2" [(ngModel)]="companheiro.pastoral"/>
+	</div>
+
+	<div class="form-group">
+		<label for="pastoralName2">Qual Pastoral?</label>
+		<input type="text" class="form-control" id="pastoralName2" name="pastoralName2" placeholder="" [(ngModel)]="companheiro.pastoralName"/>
+	</div>
+
+	<div class="form-group">
+		<label for="igreja2">Frequenta alguma Igreja??</label>
+		<input type="text" class="form-control" id="igreja2" name="igreja2" placeholder="" [(ngModel)]="companheiro.igreja"/>
+	</div>
+
+	<div class="form-group">
+		<label for="dizimista2">É dizimista?</label>
+		<input type="checkbox" class="form-control" id="dizimista2" name="dizimista2" [(ngModel)]="companheiro.dizimista"/>
+	</div>
+
+
+
+	<button type="submit" class="btn btn-primary">Enviar</button>
+</form>
