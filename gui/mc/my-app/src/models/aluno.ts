@@ -14,7 +14,7 @@ export class Aluno {
   batismo: boolean;
   igrejaBatismo: string;
   paroquia: string;
-  primeiraEucaristica: boolean;
+  primeiraEucaristia: boolean;
   saude: string;
 
   constructor() {
@@ -36,7 +36,7 @@ export class Aluno {
     this.batismo = false;
     this.igrejaBatismo = "";
     this.paroquia = "";
-    this.primeiraEucaristica = false;
+    this.primeiraEucaristia = false;
     this.saude = "";
   }
 
@@ -61,7 +61,7 @@ export class Aluno {
     this.batismo = from.batismo;
     this.igrejaBatismo = from.igrejaBatismo;
     this.paroquia = from.paroquia;
-    this.primeiraEucaristica = from.primeiraEucaristica;
+    this.primeiraEucaristia = from.primeiraEucaristia;
     this.saude = from.saude;
   }
 }
